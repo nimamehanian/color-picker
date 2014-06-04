@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Color Picker</title>
+
+    <!-- FAVICON -->
+    <!-- <link href="/assets/favicon.png" rel="icon" type="image/x-icon" /> -->
+
+    <meta name="description" content="Color Picker">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/animate.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/angular-animate.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/angular-motion.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-additions.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/global.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+    <!-- SCRIPTS -->
+    <!-- ///// ///// ///// ///// ///// ///// ///// -->
+    <!-- LIB -->
+    <script src="javascripts/lib/lato.js"></script>
+    <script src="javascripts/lib/underscore.js"></script>
+    <script src="javascripts/lib/angular-1.2.14.js"></script>
+    <script src="javascripts/lib/angular-sanitize.js"></script>
+    <script src="javascripts/lib/angular-animate.js"></script>
+    <script src="javascripts/lib/angular-strap.js"></script>
+    <script src="javascripts/lib/angular-ui-bootstrap.js"></script>
+
+    <!-- APP -->
+    <script src="javascripts/app/app.js"></script>
+    <script src="javascripts/app/filters.js"></script>
+    <script src="javascripts/app/ColorCulator.js"></script>
+
+    <!-- DIRECTIVES -->
+    <!-- <script src="javascripts/app/directives/[directive-name].js"></script> -->
+
+    <!-- MODULES -->
+    <script src="javascripts/app/mainController.js"></script>
+
+    <!-- TEMPLATES -->
+    <script src="http://rawgithub.com/mgcrea/angular-strap/master/dist/angular-strap.tpl.js"></script>
+  </head>
+  <body
+    ng-controller="Controller"
+    ng-mousemove="updateColor($event)"
+    ng-click="saveColor(hex)"
+    style="height: 200%; background-color: #{{ hex }};">
+
+    <div
+      class="sidebar"
+      ng-mouseover="locked = true; sidebarExpanded = true;"
+      ng-mouseleave="locked = false; sidebarExpanded = false;">
+
+      <img
+        class="cc-logo slide-left"
+        src="images/logo-fullname.png"
+      />
+
+      <ul>
+        <li
+          ng-repeat="swatch in swatches"
+          class="sidebar-swatch slide-left"
+          style="background-color: #{{ swatch }};">
+
+          <p class="swatch-hex-value">
+            #{{ swatch }} <span><i ng-click="removeSwatch($index)" class="fa fa-times remove-swatch"></i></span>
+          </p>
+
+        </li>
+      </ul>
+    </div>
+
+    <div class="container-fluid">
+      <div
+        class="color-model-values text-center"
+        style="color: hsla({{ hsb.hue }}, 50%, 90%, 1);">
+
+        <p>#{{ hex }}</p>
+        <p>rgb({{ rgb.red }}, {{ rgb.green }}, {{ rgb.blue }})</p>
+        <p>hsb({{ hsb.hue }}&ordm;, {{ hsb.saturation }}%, {{ hsb.brightness }}%)</p>
+        <small>
+          Click to save color
+        </small>
+
+        <span ng-click="locked = !locked" class="padlock">
+          <i ng-if="!locked" class="fa fa-unlock fa-large"></i>
+          <i ng-if="locked" class="fa fa-lock fa-large"></i>
+        </span>
+
+      </div><!-- .color-model-values -->
+    </div><!-- .container-fluid -->
+  </body>
+</html>
