@@ -51,10 +51,11 @@
     ng-click="saveColor(hex)"
     style="height: 200%; background-color: #{{ hex }};">
 
+    <!-- <sidebar> -->
     <div
       class="sidebar"
-      ng-mouseover="locked = true; sidebarExpanded = true;"
-      ng-mouseleave="locked = false; sidebarExpanded = false;">
+      ng-mouseover="locked = true;"
+      ng-mouseleave="locked = false;">
 
       <img
         class="cc-logo"
@@ -74,9 +75,9 @@
         </li>
       </ul>
     </div>
+    <!-- </sidebar> -->
 
     <div class="container-fluid">
-
       <!-- .color-model-values -->
       <div
         class="color-model-values text-center"
@@ -109,10 +110,14 @@
             <li ng-click="paletteType = 'pentad'">5</li>
           </ul>
         </div>
-      </div><!-- .color-model-values -->
+      </div>
+      <!-- .color-model-values -->
 
-
-
+      <div
+        ng-if="paletteType === 'complement'"
+        class="complement slide-right"
+        style="background-color: hsla({{ complement(hsb.hue) }}, {{ hsb.saturation }}%, {{ hsb.brightness }}%, 1);">
+      </div>
     </div><!-- .container-fluid -->
   </body>
 </html>

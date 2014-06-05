@@ -14,6 +14,10 @@ app.controller('Controller', function ($scope, $window, ColorCulator) {
       $scope.hsb.brightness = ColorCulator.brightness(event);
       $scope.rgb = ColorCulator.HSBtoRGB($scope.hsb);
       $scope.hex = ColorCulator.RGBtoHEX($scope.rgb);
+
+      if ($scope.paletteType === 'complement') {
+        $scope.complement($scope.hsb.hue);
+      }
     }
   };
 
@@ -27,5 +31,9 @@ app.controller('Controller', function ($scope, $window, ColorCulator) {
 
   $scope.removeSwatch = function (index) {
     $scope.swatches.splice(index, 1);
+  };
+
+  $scope.complement = function (hue) {
+    return ColorCulator.complement(hue);
   };
 });

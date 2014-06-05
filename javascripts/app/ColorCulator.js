@@ -108,6 +108,10 @@ app.factory('ColorCulator', function ($window) {
 
     RGBtoHEX: function (rgb) {
       return ((1 << 24) + (rgb.red << 16) + (rgb.green << 8) + rgb.blue).toString(16).substr(1);
+    },
+
+    complement: function (hue) {
+      return hue < 180 ? hue + 180 : hue - 180;
     }
   };
 });
