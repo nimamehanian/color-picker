@@ -2,10 +2,10 @@
 <html lang="en" data-ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title>Color Picker</title>
+    <title>ColorCulator</title>
 
     <!-- FAVICON -->
-    <!-- <link href="/assets/favicon.png" rel="icon" type="image/x-icon" /> -->
+    <link href="images/favicon.png" rel="icon" type="image/x-icon" />
 
     <meta name="description" content="Color Picker">
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
@@ -57,7 +57,7 @@
       ng-mouseleave="locked = false; sidebarExpanded = false;">
 
       <img
-        class="cc-logo slide-left"
+        class="cc-logo"
         src="images/logo-fullname.png"
       />
 
@@ -78,6 +78,8 @@
     <div class="container-fluid">
       <div
         class="color-model-values text-center"
+        ng-mouseover="locked = true"
+        ng-mouseleave="locked = false"
         style="color: hsla({{ hsb.hue }}, 50%, 90%, 1);">
 
         <p>#{{ hex }}</p>
@@ -87,12 +89,28 @@
           Click to save color
         </small>
 
+        <span ng-click="showSettings = !showSettings" class="settings-btn">
+          <i class="fa fa-angle-double-right"></i>
+        </span>
+
         <span ng-click="locked = !locked" class="padlock">
           <i ng-if="!locked" class="fa fa-unlock fa-large"></i>
           <i ng-if="locked" class="fa fa-lock fa-large"></i>
         </span>
 
+        <div class="settings-panel">
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+          </ul>
+        </div>
       </div><!-- .color-model-values -->
+
+
+
     </div><!-- .container-fluid -->
   </body>
 </html>

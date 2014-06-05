@@ -6,6 +6,7 @@ app.factory('ColorCulator', function ($window) {
     },
 
     saturation: function (event) {
+      // TODO: Rewrite to work for any scroll amount!!
       // 753 pixels is the hard-coded max allotted scrolling amount
       var saturation = Math.round((event.srcElement.scrollTop / 753) * 100);
       if (saturation > 100) {

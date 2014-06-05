@@ -1,5 +1,6 @@
 app.controller('Controller', function ($scope, $window, ColorCulator) {
   $scope.locked = false;
+  $scope.showSettings = false;
   $scope.swatches = [];
   $scope.hsb = {hue: 180, saturation: 60, brightness: 60};
   $scope.rgb = {red: 61, green: 153, blue: 153};
@@ -21,10 +22,6 @@ app.controller('Controller', function ($scope, $window, ColorCulator) {
         $scope.swatches.push(hex);
       }
     }
-  };
-
-  $scope.clearSwatches = function () {
-    $scope.swatches = [];
   };
 
   $scope.removeSwatch = function (index) {

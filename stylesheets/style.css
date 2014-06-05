@@ -8,6 +8,7 @@
 .sidebar {
   transition: width 0.2s ease;
   background-color: #222;
+  box-shadow: 0.2rem 0 0.5rem 0.1rem #222;
   color: #aaa;
   cursor: text !important;
   position: fixed;
@@ -70,7 +71,7 @@
 
 .color-model-values {
   background-color: rgba(20, 20, 20, 0.7);
-  border-radius: 0.5rem;
+  /*border-radius: 2rem 0 0 0;*/
   cursor: text !important;
   letter-spacing: 0.2rem;
   padding: 0.5rem 2rem;
@@ -93,12 +94,14 @@
   font-size: 1.2rem;
 }
 
+.color-model-values i.fa-angle-double-right,
 .color-model-values i.fa-lock,
 .color-model-values i.fa-unlock {
   cursor: pointer;
   opacity: 0.5;
 }
 
+.color-model-values i.fa-angle-double-right:hover,
 .color-model-values i.fa-lock:hover,
 .color-model-values i.fa-unlock:hover {
   cursor: pointer;
@@ -115,6 +118,38 @@
 
 .padlock {
   position: absolute;
+  left: 0.5rem;
+  top: 0;
+}
+
+.settings-btn {
+  position: absolute;
   right: 0.5rem;
-  bottom: 0;
+  top: 0;
+}
+
+.color-model-values:hover .settings-panel {
+  width: 3rem;
+  opacity: 1;
+}
+
+.settings-panel {
+  transition: width 0.2s ease, opacity 0.25s ease;
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 0 0rem 0rem 0;
+  width: 0.1rem;
+  height: 17.6rem;
+  position: absolute;
+  top: 0;
+  left: 34rem;
+  opacity: 0;
+}
+
+.settings-panel ul {
+  position: relative;
+  top: 0.4rem;
+}
+
+.settings-panel li {
+  cursor: pointer;
 }
