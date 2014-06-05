@@ -76,6 +76,8 @@
     </div>
 
     <div class="container-fluid">
+
+      <!-- .color-model-values -->
       <div
         class="color-model-values text-center"
         ng-mouseover="locked = true"
@@ -100,11 +102,11 @@
 
         <div class="settings-panel">
           <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
+            <li ng-click="paletteType = 'monochrome'">1</li>
+            <li ng-click="paletteType = 'complement'">2</li>
+            <li ng-click="paletteType = 'triad'">3</li>
+            <li ng-click="paletteType = 'quartet'">4</li>
+            <li ng-click="paletteType = 'pentad'">5</li>
           </ul>
         </div>
       </div><!-- .color-model-values -->

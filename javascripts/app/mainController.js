@@ -5,6 +5,7 @@ app.controller('Controller', function ($scope, $window, ColorCulator) {
   $scope.hsb = {hue: 180, saturation: 60, brightness: 60};
   $scope.rgb = {red: 61, green: 153, blue: 153};
   $scope.hex = '3d9999';
+  $scope.paletteType = 'monochrome';
 
   $scope.updateColor = function (event) {
     if (!$scope.locked) {
